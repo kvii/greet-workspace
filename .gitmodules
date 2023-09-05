@@ -1,0 +1,9 @@
+[submodule "greet"]
+	path = greet
+	url = https://github.com/kvii/greet.git
+[submodule "admin"]
+	path = admin
+	url = https://github.com/kvii/greet-admin.git
+[submodule "app"]
+	path = app
+	url = https://github.com/kvii/greet-app.git
