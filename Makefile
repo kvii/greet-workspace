@@ -12,14 +12,17 @@ init-vue:
 init-flutter:
 	go install github.com/kvii/protoc-gen-kratos-dart-http@latest
 
+# 生成所有代码
+.PHONY: all
+all: vue flutter
+
 # 生成 vue 代码
 .PHONY: vue
 vue:
 	protoc --proto_path=./greet/api/ \
 	--proto_path=./greet/third_party \
 	--typescript-http_out=./admin/src/proto \
-	./greet/api/helloworld/v1/greeter.proto \
-	./greet/api/helloworld/v1/error_reason.proto
+	./greet/api/helloworld/v1/*.proto
 
 # 生成 flutter 代码
 .PHONY: flutter
@@ -27,5 +30,4 @@ flutter:
 	protoc --proto_path=./greet/api/ \
 	--proto_path=./greet/third_party \
 	--kratos-dart-http_out=./app/lib/proto \
-	./greet/api/helloworld/v1/greeter.proto \
-	./greet/api/helloworld/v1/error_reason.proto
+	./greet/api/helloworld/v1/*.proto \
